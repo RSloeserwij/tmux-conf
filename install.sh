@@ -17,17 +17,18 @@ main() {
 
 # $1    -> desired file location
 file_exists() {
-	return [ -f "$1" ]
+	[ -f "$1" ]
 }
-
 
 # $1    -> desired file location
 place_file() {
-	mv "$SCRIPT_DIR/tmux.conf" "$1"
+	cp "$SCRIPT_DIR/tmux.conf" "$1"
 }
 
 # $1    -> file to back up
 backup_file() {
 	mv $1 "$1.old"
 }
+
+main $@
 
